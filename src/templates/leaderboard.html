@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1 {
+            font-weight: bold; 
+            margin: 0;
+        }
+    
+        h2 {
+            text-align: center;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: #000000;
+            padding-top: 20px;
+        }
+
+        .leaderboard {
+            display: flex;
+            position: relative;
+            min-height: 120px;
+            margin-bottom: 350px;
+        }
+
+        .medal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: gold;
+            margin: 5px; 
+            position: relative;
+        }
+
+        .silver-medal {
+            background-color: silver;
+            width: 120px; /* Make silver circle smaller */
+            height: 120px; /* Make silver circle smaller */
+        }
+
+        .bronze-medal {
+            background-color: #cd7f32; /* Bronze color */
+            width: 120px; /* Make bronze circle smaller */
+            height: 120px; /* Make bronze circle smaller */
+        }
+
+        .medal img {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            bottom:100%;
+            transform: translate(-50%, -50%);
+        }
+
+        .medal p {
+            font-size: 30px;
+            margin-top: 10px;
+        }
+
+        .silver-medal, .bronze-medal {
+            margin: 0; 
+        }
+
+        .silver-medal::before {
+            position: absolute;
+            top: -20px; 
+            left: -20px; 
+        }
+
+        .bronze-medal::before {
+            position: absolute;
+            top: -20px; 
+            right: -20px;
+        }
+
+        footer {
+            background-color: #222; 
+            color: #fff;
+            font-size: 14px;
+            bottom: 0;
+            position: fixed;
+            left: 0; 
+            right: 0;
+            text-align: center;
+            z-index: 999;
+          }
+          footer p{
+            margin: 10px 0;
+          }
+          footer i{
+            color: red;
+          }
+          footer a{
+            color: #3c97bf;
+            text-decoration: none;
+          }
+    </style>
+    <title>ML Edge</title>
+</head>
+<body>
+    <div style="margin: 0; padding: 0;">
+        <h1 style='color:white; text-align: center'>The ML Edge: Innovate and Inspire</h1>
+        <h2 style='color:white'>An attempt towards "peer learning"</h2>
+        <h2 style='color:white'>Leaderboard</h2>
+        <div class="leaderboard" style="margin-right: 0; margin-left: 150px; padding-bottom:0; margin-bottom:0;">
+            <div class="medal silver-medal" style="align-items: center;">
+                <img src="/static/2.png" alt="Silver Medal">
+                <p class="text" style="font-size: 15px; margin-top: 20px; margin-bottom: 0px; text-align: center;">{{ names[1] }}</p>
+                <p class="text" style="font-size: 15px; margin: 0;">{{ rollnos[1] }}</p>
+            </div>
+            <div class="medal" style="align-items: center;">
+                <img src="/static/1.png" alt="Gold Medal">
+                <p class="text" style="font-size: 20px; margin-top: 20px; margin-bottom: 0px; text-align: center;">{{ names[0] }}</p>
+                <p class="text" style="font-size: 18px;">{{ rollnos[0] }}</p>
+            </div>
+            <div class="medal bronze-medal" style="align-items: center;">
+                <img src="/static/3.png" alt="Bronze Medal">
+                <p class="text" style="font-size: 16px; margin-top: 10px; margin-bottom: 0px; text-align: center;">{{ names[2] }}</p>
+                <p class="text" style="font-size: 15px; margin: 0;">{{ rollnos[2] }}</p>
+            </div>
+        </div>
+        <div style="color: white; text-align: center; margin-top: 50px">
+            {{ leaderboard_table | safe }}
+        </div>
+    </div>
+    <footer>
+        <div class="Copyright">
+              Copyright &copy; 4CSM &trade;
+        </div>
+    </footer>
+</body>
+</html>

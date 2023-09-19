@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+    * {
+      box-sizing: border-box;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      height: 100vh;
+    }
+
+    h1 {
+      font-weight: bold;
+      font-size: 50px;
+      text-align: center;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 23px;
+      font-weight: 100;
+      line-height: 24px;
+      letter-spacing: 1px;
+      margin: 20px 0 30px;
+    }
+
+    pre {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    a {
+      color: #333;
+      font-size: 18px;
+      text-decoration: none;
+      margin: 15px 0;
+    }
+
+    .confetti-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: confetti-fall 5s linear;
+    }
+
+    footer {
+      background-color: #222; 
+      color: #fff;
+      font-size: 14px;
+      bottom: 0;
+      position: fixed;
+      left: 0; 
+      right: 0;
+      text-align: center;
+      z-index: 999;
+    }
+    footer p{
+      margin: 10px 0;
+    }
+    footer i{
+      color: red;
+    }
+    footer a{
+      color: #3c97bf;
+      text-decoration: none;
+    }
+
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
+  <title>ML Edge</title>
+</head>
+<body>
+  <!-- Confetti Container -->
+  <div class="confetti-container"></div>
+
+  <h1 style='text-align: center; padding:0; margin: 0;'>The ML Edge: Innovate and Inspire</h1>
+  <h2 style='padding-bottom: 20px;'>An attempt towards "peer learning"</h2>
+  <h1>Results of your submission for TCS {{ tag }}</h1>
+  <p>Hello, {{ name }}</p>
+  <pre>{{ rollno }}</pre>
+  <p>Your Score is: {{ accuracy_result }}%</p>
+  <footer>
+    <div class="Copyright">
+          Copyright &copy; 4CSM &trade;
+    </div>
+  </footer>
+  <script>
+    function createConfetti() {
+      const colors = ['#FFD700', '#FF5733', '#33FF57', '#337AFF'];
+      const container = document.querySelector('.confetti-container');
+
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        confetti.style.animationDelay = `${Math.random() * 2}s`;
+        container.appendChild(confetti);
+      }
+    }
+
+    window.onload = createConfetti;
+  </script>
+</body>
+</html>
